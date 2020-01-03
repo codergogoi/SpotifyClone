@@ -21,7 +21,7 @@ class CollectionBaseCell: UICollectionViewCell {
     let subTitle: UILabel = {
         let  lbl = UILabel()
         lbl.font =  UIFont.systemFont(ofSize: 14, weight: .bold)
-        lbl.textColor = .white
+        lbl.textColor = UIColor.rgba(r: 216, g: 216, b: 216, a: 1)
         lbl.lineBreakMode = .byTruncatingTail
        return lbl
     }()

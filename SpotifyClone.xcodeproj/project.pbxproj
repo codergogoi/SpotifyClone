@@ -19,6 +19,11 @@
 		5DB7E21923BDD1A8002F9F42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E21823BDD1A8002F9F42 /* HomeViewController.swift */; };
 		5DB7E21C23BDF86B002F9F42 /* RecentlyPlayed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E21B23BDF86B002F9F42 /* RecentlyPlayed.swift */; };
 		5DB7E21F23BE030F002F9F42 /* HeavyRotationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E21E23BE030F002F9F42 /* HeavyRotationCell.swift */; };
+		5DB7E22123BE0684002F9F42 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E22023BE0684002F9F42 /* HomeViewModel.swift */; };
+		5DB7E22423BE129B002F9F42 /* CommonEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E22323BE129B002F9F42 /* CommonEnums.swift */; };
+		5DB7E22623BE1300002F9F42 /* MusicCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E22523BE1300002F9F42 /* MusicCategory.swift */; };
+		5DB7E22923BE189C002F9F42 /* MadeForYou.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E22823BE189C002F9F42 /* MadeForYou.swift */; };
+		5DB7E22C23BE1B4D002F9F42 /* TrackDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E22B23BE1B4D002F9F42 /* TrackDetailsViewController.swift */; };
 		5DEC2F7523BC7E260043BB86 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2F7423BC7E260043BB86 /* WebServices.swift */; };
 		5DEC2F7823BC7E750043BB86 /* AppConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2F7723BC7E750043BB86 /* AppConst.swift */; };
 		5DEC2F7A23BC7EA30043BB86 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2F7923BC7EA30043BB86 /* View+Extensions.swift */; };
@@ -64,6 +69,11 @@
 		5DB7E21823BDD1A8002F9F42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5DB7E21B23BDF86B002F9F42 /* RecentlyPlayed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayed.swift; sourceTree = "<group>"; };
 		5DB7E21E23BE030F002F9F42 /* HeavyRotationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeavyRotationCell.swift; sourceTree = "<group>"; };
+		5DB7E22023BE0684002F9F42 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5DB7E22323BE129B002F9F42 /* CommonEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEnums.swift; sourceTree = "<group>"; };
+		5DB7E22523BE1300002F9F42 /* MusicCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCategory.swift; sourceTree = "<group>"; };
+		5DB7E22823BE189C002F9F42 /* MadeForYou.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadeForYou.swift; sourceTree = "<group>"; };
+		5DB7E22B23BE1B4D002F9F42 /* TrackDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailsViewController.swift; sourceTree = "<group>"; };
 		5DEC2F7423BC7E260043BB86 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		5DEC2F7723BC7E750043BB86 /* AppConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConst.swift; sourceTree = "<group>"; };
 		5DEC2F7923BC7EA30043BB86 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 		5DB7E21523BDD0FB002F9F42 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5DB7E22723BE188A002F9F42 /* MadeForYou */,
 				5DB7E21D23BE02EA002F9F42 /* HeavyRotation */,
 				5DB7E21A23BDF849002F9F42 /* RecentlyPlayed */,
 				5DB7E21823BDD1A8002F9F42 /* HomeViewController.swift */,
@@ -178,9 +189,34 @@
 			path = HeavyRotation;
 			sourceTree = "<group>";
 		};
+		5DB7E22223BE128E002F9F42 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				5DB7E22323BE129B002F9F42 /* CommonEnums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		5DB7E22723BE188A002F9F42 /* MadeForYou */ = {
+			isa = PBXGroup;
+			children = (
+				5DB7E22823BE189C002F9F42 /* MadeForYou.swift */,
+			);
+			path = MadeForYou;
+			sourceTree = "<group>";
+		};
+		5DB7E22A23BE1B1F002F9F42 /* TrackDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5DB7E22B23BE1B4D002F9F42 /* TrackDetailsViewController.swift */,
+			);
+			path = TrackDetails;
+			sourceTree = "<group>";
+		};
 		5DEC2F6A23BC7D850043BB86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5DB7E22523BE1300002F9F42 /* MusicCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +224,7 @@
 		5DEC2F6B23BC7D8B0043BB86 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5DB7E22023BE0684002F9F42 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -215,6 +252,7 @@
 		5DEC2F6E23BC7DA10043BB86 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5DB7E22223BE128E002F9F42 /* Enums */,
 				5DEC2F8223BC7F2A0043BB86 /* Classes */,
 				5DEC2F6D23BC7D980043BB86 /* Extensions */,
 				5DEC2F7623BC7E670043BB86 /* AppConst */,
@@ -243,6 +281,7 @@
 		5DEC2F7123BC7DC90043BB86 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DB7E22A23BE1B1F002F9F42 /* TrackDetails */,
 				5DB7E21623BDD116002F9F42 /* PlayerContainerView.swift */,
 				5DB7E21523BDD0FB002F9F42 /* Home */,
 			);
@@ -414,8 +453,11 @@
 			files = (
 				5D3F11F723BA5CC700AAB407 /* SpotifyClone.xcdatamodeld in Sources */,
 				5DB7E21C23BDF86B002F9F42 /* RecentlyPlayed.swift in Sources */,
+				5DB7E22623BE1300002F9F42 /* MusicCategory.swift in Sources */,
 				5DEC2F7A23BC7EA30043BB86 /* View+Extensions.swift in Sources */,
+				5DB7E22923BE189C002F9F42 /* MadeForYou.swift in Sources */,
 				5DEC2F8623BC80AD0043BB86 /* CollectionBaseCell.swift in Sources */,
+				5DB7E22C23BE1B4D002F9F42 /* TrackDetailsViewController.swift in Sources */,
 				5DEC2F8123BC7F080043BB86 /* Button+Extensions.swift in Sources */,
 				5DEC2F8423BC7F470043BB86 /* WebImageView.swift in Sources */,
 				5DEC2F7523BC7E260043BB86 /* WebServices.swift in Sources */,
@@ -425,6 +467,8 @@
 				5D3F11ED23BA5CC700AAB407 /* AppDelegate.swift in Sources */,
 				5D3F11EF23BA5CC700AAB407 /* SceneDelegate.swift in Sources */,
 				5DB7E21923BDD1A8002F9F42 /* HomeViewController.swift in Sources */,
+				5DB7E22423BE129B002F9F42 /* CommonEnums.swift in Sources */,
+				5DB7E22123BE0684002F9F42 /* HomeViewModel.swift in Sources */,
 				5DEC2F7C23BC7EBC0043BB86 /* Color+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

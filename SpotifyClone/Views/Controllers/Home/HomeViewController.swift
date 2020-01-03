@@ -8,19 +8,9 @@
 
 import UIKit
 
-enum SectionType{
-    case RecentlyPlayed
-    case HeavyRotation
-    case MadeForYou
-    case Recomandation
-    case PopularSongs
-    case TopMusics
-    case FavArtist
-}
-
-
-
 class HomeViewController : UIViewController {
+    
+    var viewModel: HomeViewModel!
     
     let NavbarView: UIView = {
         let view = UIView()
@@ -36,20 +26,29 @@ class HomeViewController : UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection =  .vertical
         let collView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collView.backgroundColor = .clear
         return collView
     }()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = .red
+
+        self.viewModel = HomeViewModel()
+         
         self.navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor =  UIColor.rgba(r: 20, g: 20, b: 20, a: 1)
-         UITabBar.appearance().backgroundColor = UIColor.rgba(r: 40, g: 40, b: 40, a: 1)
+        self.view.backgroundColor = UIColor.clear
+        
+        UITabBar.appearance().backgroundColor = UIColor.rgba(r: 40, g: 40, b: 40, a: 1)
     
         self.view.addSubview(tracksCollectionView)
         self.view.addConstraintWithFormat(formate: "H:|[v0]|", views: tracksCollectionView)
         self.view.addConstraintWithFormat(formate: "V:|[v0]|", views: tracksCollectionView)
-        tracksCollectionView.register(RecentyPlayedCell.self, forCellWithReuseIdentifier: "cell")
+        tracksCollectionView.register(RecentyPlayedCell.self, forCellWithReuseIdentifier: SectionType.RecentlyPlayed.rawValue)
+        tracksCollectionView.register(HeavyRotationCell.self, forCellWithReuseIdentifier: SectionType.HeavyRotation.rawValue)
+        tracksCollectionView.register(MadeForYouCell.self, forCellWithReuseIdentifier: SectionType.MadeForYou.rawValue)
         tracksCollectionView.delegate = self
         tracksCollectionView.dataSource = self
         
@@ -76,9 +75,7 @@ class HomeViewController : UIViewController {
         
     }
     
-    private func setupCollectionView(){
-        
-    }
+   
     
 }
  
@@ -90,23 +87,55 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return self.viewModel.numbersOfSection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RecentyPlayedCell
         
-        return cell
+        let dataModel = self.viewModel.categoryForSection(section: indexPath.section)
+        
+        switch dataModel.type {
+            case .HeavyRotation:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionType.HeavyRotation.rawValue, for: indexPath) as! HeavyRotationCell
+                return cell
+            case .MadeForYou:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionType.MadeForYou.rawValue, for: indexPath) as! MadeForYouCell
+                return cell
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionType.RecentlyPlayed.rawValue, for: indexPath) as! RecentyPlayedCell
+                cell.onTapSelection = { [weak self] in
+                    self?.viewTrackDetails()
+                }
+                return cell
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.size.width, height: 240)
+       return CGSize(width: collectionView.frame.size.width, height: self.viewModel.sectionHeight(section: indexPath.section))
+        
+    }
+
+  
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
+        return 50
+    }
+    
+}
+
+
+extension HomeViewController {
+    
+    private func viewTrackDetails(){
+        let trackDetailsVC = TrackDetailsViewController()
+        self.navigationController?.pushViewController(trackDetailsVC, animated: true)
     }
     
     
