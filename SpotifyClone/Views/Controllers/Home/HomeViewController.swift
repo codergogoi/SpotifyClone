@@ -10,7 +10,10 @@ import UIKit
 
 class HomeViewController : UIViewController {
     
+    var delegate: PlayerControllerDelegate?
     var viewModel: HomeViewModel!
+    
+    var onTapAction: (()->())?
     
     let NavbarView: UIView = {
         let view = UIView()
@@ -134,6 +137,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension HomeViewController {
     
     private func viewTrackDetails(){
+        self.delegate?.onTapTrack()
         let trackDetailsVC = TrackDetailsViewController()
         self.navigationController?.pushViewController(trackDetailsVC, animated: true)
     }

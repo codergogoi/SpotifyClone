@@ -32,6 +32,10 @@ class CollectionBaseCell: UICollectionViewCell {
         return img
     }()
     
+    let btnOnTapAction: UIButton = {
+        let btn = UIButton()
+        return btn
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

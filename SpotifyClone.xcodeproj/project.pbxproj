@@ -15,6 +15,13 @@
 		5D3F11FC23BA5CC800AAB407 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D3F11FA23BA5CC800AAB407 /* LaunchScreen.storyboard */; };
 		5D3F120723BA5CC900AAB407 /* SpotifyCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3F120623BA5CC900AAB407 /* SpotifyCloneTests.swift */; };
 		5D3F121223BA5CC900AAB407 /* SpotifyCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3F121123BA5CC900AAB407 /* SpotifyCloneUITests.swift */; };
+		5D64275823C3385500622F01 /* StreamingPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D64275723C3385500622F01 /* StreamingPlayer.swift */; };
+		5D9679FE23D00CB700B0668D /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9679FD23D00CB700B0668D /* ViewController+Extensions.swift */; };
+		5D967A0123D00D9700B0668D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D967A0023D00D9700B0668D /* SearchViewController.swift */; };
+		5D967A0423D00EB600B0668D /* PlayerContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D967A0323D00EB600B0668D /* PlayerContainerViewModel.swift */; };
+		5D967A0623D00F4C00B0668D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D967A0523D00F4C00B0668D /* PlayerViewController.swift */; };
+		5D967A0823D00F6B00B0668D /* MiniPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D967A0723D00F6B00B0668D /* MiniPlayerView.swift */; };
+		5D967A0B23D0139800B0668D /* PlayerContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D967A0A23D0139800B0668D /* PlayerContainerDelegate.swift */; };
 		5DB7E21723BDD116002F9F42 /* PlayerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E21623BDD116002F9F42 /* PlayerContainerView.swift */; };
 		5DB7E21923BDD1A8002F9F42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E21823BDD1A8002F9F42 /* HomeViewController.swift */; };
 		5DB7E21C23BDF86B002F9F42 /* RecentlyPlayed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7E21B23BDF86B002F9F42 /* RecentlyPlayed.swift */; };
@@ -65,6 +72,13 @@
 		5D3F120D23BA5CC900AAB407 /* SpotifyCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotifyCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3F121123BA5CC900AAB407 /* SpotifyCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyCloneUITests.swift; sourceTree = "<group>"; };
 		5D3F121323BA5CC900AAB407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D64275723C3385500622F01 /* StreamingPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingPlayer.swift; sourceTree = "<group>"; };
+		5D9679FD23D00CB700B0668D /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		5D967A0023D00D9700B0668D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5D967A0323D00EB600B0668D /* PlayerContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainerViewModel.swift; sourceTree = "<group>"; };
+		5D967A0523D00F4C00B0668D /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		5D967A0723D00F6B00B0668D /* MiniPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerView.swift; sourceTree = "<group>"; };
+		5D967A0A23D0139800B0668D /* PlayerContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainerDelegate.swift; sourceTree = "<group>"; };
 		5DB7E21623BDD116002F9F42 /* PlayerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerContainerView.swift; sourceTree = "<group>"; };
 		5DB7E21823BDD1A8002F9F42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5DB7E21B23BDF86B002F9F42 /* RecentlyPlayed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentlyPlayed.swift; sourceTree = "<group>"; };
@@ -162,6 +176,32 @@
 			path = SpotifyCloneUITests;
 			sourceTree = "<group>";
 		};
+		5D9679FF23D00D6B00B0668D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5D967A0023D00D9700B0668D /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		5D967A0223D00E4300B0668D /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				5D64275723C3385500622F01 /* StreamingPlayer.swift */,
+				5D967A0523D00F4C00B0668D /* PlayerViewController.swift */,
+				5D967A0723D00F6B00B0668D /* MiniPlayerView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		5D967A0923D012D400B0668D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5D967A0A23D0139800B0668D /* PlayerContainerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		5DB7E21523BDD0FB002F9F42 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +264,9 @@
 		5DEC2F6B23BC7D8B0043BB86 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				5D967A0923D012D400B0668D /* Protocols */,
 				5DB7E22023BE0684002F9F42 /* HomeViewModel.swift */,
+				5D967A0323D00EB600B0668D /* PlayerContainerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -245,6 +287,7 @@
 				5DEC2F7923BC7EA30043BB86 /* View+Extensions.swift */,
 				5DEC2F7B23BC7EBC0043BB86 /* Color+Extensions.swift */,
 				5DEC2F8023BC7F080043BB86 /* Button+Extensions.swift */,
+				5D9679FD23D00CB700B0668D /* ViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,8 +324,10 @@
 		5DEC2F7123BC7DC90043BB86 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DB7E22A23BE1B1F002F9F42 /* TrackDetails */,
 				5DB7E21623BDD116002F9F42 /* PlayerContainerView.swift */,
+				5D967A0223D00E4300B0668D /* Player */,
+				5D9679FF23D00D6B00B0668D /* Search */,
+				5DB7E22A23BE1B1F002F9F42 /* TrackDetails */,
 				5DB7E21523BDD0FB002F9F42 /* Home */,
 			);
 			path = Controllers;
@@ -456,6 +501,7 @@
 				5DB7E22623BE1300002F9F42 /* MusicCategory.swift in Sources */,
 				5DEC2F7A23BC7EA30043BB86 /* View+Extensions.swift in Sources */,
 				5DB7E22923BE189C002F9F42 /* MadeForYou.swift in Sources */,
+				5D967A0B23D0139800B0668D /* PlayerContainerDelegate.swift in Sources */,
 				5DEC2F8623BC80AD0043BB86 /* CollectionBaseCell.swift in Sources */,
 				5DB7E22C23BE1B4D002F9F42 /* TrackDetailsViewController.swift in Sources */,
 				5DEC2F8123BC7F080043BB86 /* Button+Extensions.swift in Sources */,
@@ -463,12 +509,18 @@
 				5DEC2F7523BC7E260043BB86 /* WebServices.swift in Sources */,
 				5DB7E21F23BE030F002F9F42 /* HeavyRotationCell.swift in Sources */,
 				5DB7E21723BDD116002F9F42 /* PlayerContainerView.swift in Sources */,
+				5D967A0123D00D9700B0668D /* SearchViewController.swift in Sources */,
+				5D967A0823D00F6B00B0668D /* MiniPlayerView.swift in Sources */,
 				5DEC2F7823BC7E750043BB86 /* AppConst.swift in Sources */,
+				5D9679FE23D00CB700B0668D /* ViewController+Extensions.swift in Sources */,
 				5D3F11ED23BA5CC700AAB407 /* AppDelegate.swift in Sources */,
 				5D3F11EF23BA5CC700AAB407 /* SceneDelegate.swift in Sources */,
+				5D967A0623D00F4C00B0668D /* PlayerViewController.swift in Sources */,
 				5DB7E21923BDD1A8002F9F42 /* HomeViewController.swift in Sources */,
 				5DB7E22423BE129B002F9F42 /* CommonEnums.swift in Sources */,
 				5DB7E22123BE0684002F9F42 /* HomeViewModel.swift in Sources */,
+				5D967A0423D00EB600B0668D /* PlayerContainerViewModel.swift in Sources */,
+				5D64275823C3385500622F01 /* StreamingPlayer.swift in Sources */,
 				5DEC2F7C23BC7EBC0043BB86 /* Color+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,12 +695,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G32KBCK452;
 				INFOPLIST_FILE = SpotifyClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jayantagogoi.SpotifyClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akbartravels.salesappinternal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -660,12 +713,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G32KBCK452;
 				INFOPLIST_FILE = SpotifyClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jayantagogoi.SpotifyClone;
+				PRODUCT_BUNDLE_IDENTIFIER = com.akbartravels.salesappinternal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
