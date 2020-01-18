@@ -21,6 +21,12 @@ class HomeViewController : UIViewController {
         return view
     }()
     
+    let btnSettings: UIButton = {
+           let btn = UIButton()
+           btn.setImage(#imageLiteral(resourceName: "settings_white"), for: .normal)
+           return btn
+    }()
+    
     var heightConst = NSLayoutConstraint()
     
     var isCollapse = false
@@ -54,9 +60,23 @@ class HomeViewController : UIViewController {
         tracksCollectionView.register(MadeForYouCell.self, forCellWithReuseIdentifier: SectionType.MadeForYou.rawValue)
         tracksCollectionView.delegate = self
         tracksCollectionView.dataSource = self
-        
+        setupTopNavigation()
     }
      
+    
+    private func setupTopNavigation(){
+       
+          view.addSubview(btnSettings)
+          view.addConstraintWithFormat(formate: "H:[v0(40)]-10-|", views: btnSettings)
+          view.addConstraintWithFormat(formate: "V:|-40-[v0(40)]", views: btnSettings)
+          btnSettings.addTarget(self, action: #selector(onTapSettings(_:)), for: .touchUpInside)
+      }
+      
+    @objc func onTapSettings(_ sender: UIButton){
+           sender.onTapAnimation()
+    }
+       
+    
     
     func onUpdateNavBar(_ swipeUp: Bool = false){
         

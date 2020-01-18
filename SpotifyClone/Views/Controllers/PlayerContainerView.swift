@@ -20,16 +20,15 @@ class PlayerContainerView : UITabBarController {
     
     var isPlaying = false
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTabViewControllers()
         self.setupMiniPlayer()
         self.setupPlayer()
-        self.playNow()
-        
     }
-    
-    
+     
     /* Setup TabViewControllers  : by - Jayanta
      * @parameters required: N/A
      * @return type or Object: Void
@@ -100,8 +99,8 @@ extension PlayerContainerView {
         }
         
         miniPlayer.didTapOnPlayPause = { [weak self] isPlaying in
-            
             self?.isPlaying =  isPlaying
+            self?.playNow()
             
         }
         
@@ -160,13 +159,17 @@ extension PlayerContainerView{
 //MARK: - Player Control
 extension PlayerContainerView{
     
-    func playNow(){
+    func initPlayWithNewTrack(url: String){
         self.player.playStream(fileURL: "http://jayantagogoi.com/app/ios/music_app/tracks/bensound-allthat.mp3")
-        self.changePlayerUI()
+               self.changePlayerUI()
     }
     
-    func pausePlay(){
-        
+    func playNow(){
+        self.player.playAudio()
+    }
+    
+    func pauseNow(){
+        self.player.pauseAudio()
     }
     
     override func remoteControlReceived(with event: UIEvent?) {
@@ -202,6 +205,7 @@ extension PlayerContainerView: PlayerControllerDelegate {
     
     func onTapTrack() {
         print("Working  as expected")
+
     }
     
 }
