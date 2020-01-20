@@ -76,8 +76,6 @@ class HomeViewController : UIViewController {
            sender.onTapAnimation()
     }
        
-    
-    
     func onUpdateNavBar(_ swipeUp: Bool = false){
         
         self.NavbarView.removeConstraint(self.heightConst)
@@ -95,10 +93,7 @@ class HomeViewController : UIViewController {
             self.view.layoutIfNeeded()
             
         }, completion: nil)
-        
     }
-    
-   
     
 }
  
@@ -118,7 +113,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         
         let dataModel = self.viewModel.categoryForSection(section: indexPath.section)
         
@@ -142,10 +136,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
        return CGSize(width: collectionView.frame.size.width, height: self.viewModel.sectionHeight(section: indexPath.section))
-        
     }
-
-  
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
         return 50

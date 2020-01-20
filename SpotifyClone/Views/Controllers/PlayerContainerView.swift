@@ -16,10 +16,11 @@ class PlayerContainerView : UITabBarController {
     
     var player: StreamingPlayer!
     var miniPlayer: MiniPlayer!
+    var fullPlayer: PlayerViewController?
     var miniPlayerHightConst = NSLayoutConstraint()
     
     var isPlaying = false
-    
+    var isFullPlayerOpen = false
    
     
     override func viewDidLoad() {
@@ -87,33 +88,12 @@ class PlayerContainerView : UITabBarController {
     
 }
 
-//MARK: - MiniPlayer Callback
-extension PlayerContainerView {
-    
-    private func handleMiniPlayerCallBacks(){
-        
-        //todo: connect with popup modal
-        miniPlayer.didMakeFavorite = { [weak self] in
-            
-            print("Did Make fav .. show modal ")
-        }
-        
-        miniPlayer.didTapOnPlayPause = { [weak self] isPlaying in
-            self?.isPlaying =  isPlaying
-            self?.playNow()
-            
-        }
-        
-        
-    }
-    
-}
 
 
-//MARK: - Player Configure
+
+//MARK: - Player Configuration
 extension PlayerContainerView{
  
-    
     private func setupPlayer(){
         setSession()
         UIApplication.shared.beginReceivingRemoteControlEvents()
@@ -149,6 +129,23 @@ extension PlayerContainerView{
            
        }
     
+    override func remoteControlReceived(with event: UIEvent?) {
+           
+           if event?.type == UIEvent.EventType.remoteControl{
+                       
+              if event?.subtype == .some(.remoteControlPause) {
+                  self.player.pauseAudio()
+              }else if event?.subtype == .some(.remoteControlPlay) {
+                  self.player.playAudio()
+              }else if event?.subtype  == .some(.remoteControlNextTrack){
+                   // play next track
+              }else if event?.subtype == .some(.remoteControlPreviousTrack){
+                   //play previous Track
+               }
+           }
+       }
+       
+    
     override func becomeFirstResponder() -> Bool {
         return true
     }
@@ -161,7 +158,17 @@ extension PlayerContainerView{
     
     func initPlayWithNewTrack(url: String){
         self.player.playStream(fileURL: "http://jayantagogoi.com/app/ios/music_app/tracks/bensound-allthat.mp3")
-               self.changePlayerUI()
+        self.changePlayerUI()
+    }
+   
+    
+    private func changePlayerUI(){
+        
+        if self.player.avPlayer.rate > 0 {
+            //pause Button
+        }else{
+            // play button
+        }
     }
     
     func playNow(){
@@ -172,30 +179,26 @@ extension PlayerContainerView{
         self.player.pauseAudio()
     }
     
-    override func remoteControlReceived(with event: UIEvent?) {
+    func shufflePlay(){
         
-        if event?.type == UIEvent.EventType.remoteControl{
-                    
-           if event?.subtype == .some(.remoteControlPause) {
-               self.player.pauseAudio()
-           }else if event?.subtype == .some(.remoteControlPlay) {
-               self.player.playAudio()
-           }else if event?.subtype  == .some(.remoteControlNextTrack){
-                // play next track
-           }else if event?.subtype == .some(.remoteControlPreviousTrack){
-                //play previous Track
-            }
-        }
     }
     
-    
-    private func changePlayerUI(){
+    func nextTrack(){
         
-        if self.player.avPlayer.rate > 0 {
-            //pause Button
-        }else{
-            // play button
-        }
+        
+    }
+    
+    func prevTrack(){
+        
+        
+    }
+    
+    func repeatTrack(){
+        
+    }
+    
+    func markFavorite(){
+        
     }
     
 }
@@ -207,6 +210,62 @@ extension PlayerContainerView: PlayerControllerDelegate {
         print("Working  as expected")
 
     }
+    
+}
+
+
+
+//MARK: - MiniPlayer Callback
+extension PlayerContainerView {
+    
+    private func handleMiniPlayerCallBacks(){
+        
+        //todo: connect with popup modal
+//        miniPlayer.didMakeFavorite = { [weak self] in
+//            print("Did Make fav .. show modal ")
+//        }
+        
+        miniPlayer.didTapOnTrack = {[weak self] in
+            self?.didOpenFullPlayer()
+        }
+        
+        miniPlayer.didTapOnPlayPause = { [weak self] isPlaying in
+            self?.isPlaying =  isPlaying
+            self?.playNow()
+        }
+
+    }
+    
+}
+
+//MARK: - Full Screen Player with Details
+extension PlayerContainerView {
+    
+    private func didOpenFullPlayer(){
+        
+        if let fullPlayer = self.fullPlayer{
+            if self.isFullPlayerOpen{
+                 // inject track details
+            }else{
+                self.present(fullPlayer, animated: true, completion: nil)
+            }
+            self.isFullPlayerOpen = true
+            //set
+        }else{
+            self.isFullPlayerOpen = true
+            self.fullPlayer = PlayerViewController()
+            self.present(self.fullPlayer!, animated: true, completion: nil)
+        }
+    
+        //start Play depends on State
+        
+        self.fullPlayer?.onDidTapDismiss = {[weak self] in
+            self?.isFullPlayerOpen = false
+        }
+    
+    }
+    
+    
     
 }
 

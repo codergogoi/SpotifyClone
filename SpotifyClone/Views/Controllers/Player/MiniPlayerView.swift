@@ -24,6 +24,7 @@ class MiniPlayer: UIView {
     
     var didMakeFavorite: (()->())?
     var didTapOnPlayPause: ((Bool)->())?
+    var didTapOnTrack:(()->())?
     
     var isPlaying = false
     
@@ -129,6 +130,10 @@ extension MiniPlayer: UICollectionViewDelegate, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // check for negetive value to get rid from negetive layout constraint size issue
         return CGSize(width: collectionView.frame.size.width > 0 ? collectionView.frame.size.width : 0 , height: collectionView.frame.size.height > 0 ? collectionView.frame.size.height : 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.didTapOnTrack?()
     }
     
     

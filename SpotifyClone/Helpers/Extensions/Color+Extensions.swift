@@ -15,6 +15,10 @@ extension UIColor{
         return UIColor(red: CGFloat(r/255), green: CGFloat(g/255), blue: CGFloat(b/255), alpha: CGFloat(a))
     }
     
+    //generate random color
+//    class func randomColor() -> UIColor{ // except black
+//           return UIColor(red: CGFloat(arc4random_uniform(250)/ 255), green: CGFloat(arc4random_uniform(255)/255), blue: CGFloat(arc4random_uniform(255)/255), alpha: 1)
+//    }
     
     class func gradientBg(_ view : UIView) -> CAGradientLayer{
         let gradient: CAGradientLayer = CAGradientLayer()
