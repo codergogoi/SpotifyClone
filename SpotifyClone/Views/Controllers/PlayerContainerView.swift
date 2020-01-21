@@ -46,7 +46,7 @@ class PlayerContainerView : UITabBarController {
             addNavigationCongtroller(vc: HomeViewController(), title: "Home", icon: #imageLiteral(resourceName: "tb_home")) ,
                addNavigationCongtroller(vc: SearchViewController(), title: "Search", icon: #imageLiteral(resourceName: "tb_search")) ,
                addNavigationCongtroller(vc: homeController, title: "Your Library", icon: #imageLiteral(resourceName: "tb_library")) ,
-               addNavigationCongtroller(vc: homeController, title: "Premium", icon: #imageLiteral(resourceName: "tb_icon_premium")) ,
+               addNavigationCongtroller(vc: PremiumViewController(), title: "Premium", icon: #imageLiteral(resourceName: "tb_icon_premium")) ,
                ]
             
            tabBar.barTintColor =  UIColor.rgba(r: 40, g: 40, b: 40, a: 1)
