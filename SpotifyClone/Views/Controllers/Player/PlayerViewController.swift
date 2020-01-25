@@ -64,6 +64,7 @@ class PlayerViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let collView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collView.backgroundColor = .clear
+        collView.isPagingEnabled = true
         return collView
     }()
     

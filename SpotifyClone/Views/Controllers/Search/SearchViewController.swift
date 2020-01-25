@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     var delegate: PlayerControllerDelegate?
     let identifierSearchField = "searchFieldIdentifier"
     let identifierHeader = "headerCell"
@@ -17,46 +17,52 @@ class SearchViewController: UIViewController {
     
     let categories = ["Your top genres", "Browse all"]
     
-       let spacing: CGFloat = 16
-       
-       let collectionView: UICollectionView = {
-           let layout = UICollectionViewFlowLayout()
-           layout.scrollDirection =  .vertical
-           layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-           layout.minimumLineSpacing = 16
-           layout.minimumInteritemSpacing = 16
-           let collView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-           return collView
-       }()
-       
-       let headerView: UIView = {
-           let view = UIView()
-           view.backgroundColor = .lightGray
-           return view
-       }()
-       
-       
-       override func viewDidLoad() {
-           super.viewDidLoad()
-
-           view.addSubview(collectionView)
-           view.addConstraintWithFormat(formate: "H:|[v0]|", views: collectionView)
-           view.addConstraintWithFormat(formate: "H:|[v0]|", views: collectionView)
-           
-           self.view.addSubview(collectionView)
-           self.view.addConstraintWithFormat(formate: "H:|[v0]|", views: collectionView)
-           self.view.addConstraintWithFormat(formate: "V:|[v0]|", views: collectionView)
-           collectionView.register(GenreCell.self, forCellWithReuseIdentifier: identifierGenre)
-           collectionView.register(HeaderCellWithSearch.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:identifierSearchField)
-           collectionView.register(SearchHeaderTitle.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: identifierHeader)
-           collectionView.delegate = self
-           collectionView.dataSource = self
-           
-           collectionView.addSubview(headerView)
-           collectionView.addConstraintWithFormat(formate: "H:|[v0]|", views: headerView)
-           collectionView.addConstraintWithFormat(formate: "V:|[v0(100)]", views: headerView)
-           
-       }
+    let spacing: CGFloat = 16
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection =  .vertical
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        layout.minimumLineSpacing = 16
+        layout.minimumInteritemSpacing = 16
+        let collView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collView
+    }()
+    
+    let headerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        setupCollectionView()
+        
+        
+    }
+    
+    fileprivate func setupCollectionView(){
+        
+        view.addSubview(collectionView)
+        view.addConstraintWithFormat(formate: "H:|[v0]|", views: collectionView)
+        view.addConstraintWithFormat(formate: "H:|[v0]|", views: collectionView)
+        
+        self.view.addSubview(collectionView)
+        self.view.addConstraintWithFormat(formate: "H:|[v0]|", views: collectionView)
+        self.view.addConstraintWithFormat(formate: "V:|[v0]|", views: collectionView)
+        collectionView.register(GenreCell.self, forCellWithReuseIdentifier: identifierGenre)
+        collectionView.register(HeaderCellWithSearch.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:identifierSearchField)
+        collectionView.register(SearchHeaderTitle.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: identifierHeader)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.addSubview(headerView)
+        collectionView.addConstraintWithFormat(formate: "H:|[v0]|", views: headerView)
+        collectionView.addConstraintWithFormat(formate: "V:|[v0(100)]", views: headerView)
+    }
     
 }
 
@@ -64,7 +70,7 @@ class SearchViewController: UIViewController {
 //MARK: - Collection View Functionality
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-            
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
@@ -103,16 +109,16 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: identifierSearchField, for: indexPath) as! HeaderCellWithSearch
                 return headerView
             }
-               
+            
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: identifierHeader, for: indexPath) as! SearchHeaderTitle
             headerView.category = self.categories[indexPath.section - 1]
             return headerView
-        
+            
         }
         return UICollectionReusableView()
         
     }
-     
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
@@ -120,7 +126,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
-
+    
     
 }
 

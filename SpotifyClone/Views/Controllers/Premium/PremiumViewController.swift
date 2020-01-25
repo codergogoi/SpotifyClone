@@ -35,6 +35,7 @@ class PremiumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         setupCollectionView()
     }
 }

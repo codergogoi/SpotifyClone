@@ -50,6 +50,7 @@ class MiniPlayer: UIView {
         let collView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collView.backgroundColor = .clear
         collView.showsHorizontalScrollIndicator = false
+        collView.isPagingEnabled = true
         return collView
     }()
     

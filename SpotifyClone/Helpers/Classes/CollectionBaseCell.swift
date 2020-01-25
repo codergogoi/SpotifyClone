@@ -15,6 +15,7 @@ class CollectionBaseCell: UICollectionViewCell {
         lbl.font =  UIFont.systemFont(ofSize: 16, weight: .bold)
         lbl.textColor = .white
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.noAutoConst()
         return lbl
     }()
     
@@ -23,17 +24,20 @@ class CollectionBaseCell: UICollectionViewCell {
         lbl.font =  UIFont.systemFont(ofSize: 14, weight: .bold)
         lbl.textColor = UIColor.rgba(r: 216, g: 216, b: 216, a: 1)
         lbl.lineBreakMode = .byTruncatingTail
+        lbl.noAutoConst()
        return lbl
     }()
     
     let imgArtwork: UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
+        img.noAutoConst()
         return img
     }()
     
     let btnOnTapAction: UIButton = {
         let btn = UIButton()
+        btn.noAutoConst()
         return btn
     }()
     

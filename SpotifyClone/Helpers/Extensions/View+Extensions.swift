@@ -11,6 +11,10 @@ import UIKit
 
 extension UIView{
     
+    func noAutoConst(){
+           self.translatesAutoresizingMaskIntoConstraints = false
+    }
+       
     func addConstraintWithFormat(formate: String, views: UIView...){
         
         var viewDiectionary = [String: UIView]()

@@ -45,7 +45,7 @@ class PlayerContainerView : UITabBarController {
            viewControllers = [
             addNavigationCongtroller(vc: HomeViewController(), title: "Home", icon: #imageLiteral(resourceName: "tb_home")) ,
                addNavigationCongtroller(vc: SearchViewController(), title: "Search", icon: #imageLiteral(resourceName: "tb_search")) ,
-               addNavigationCongtroller(vc: homeController, title: "Your Library", icon: #imageLiteral(resourceName: "tb_library")) ,
+               addNavigationCongtroller(vc: LibraryViewController(), title: "Your Library", icon: #imageLiteral(resourceName: "tb_library")) ,
                addNavigationCongtroller(vc: PremiumViewController(), title: "Premium", icon: #imageLiteral(resourceName: "tb_icon_premium")) ,
                ]
             
